@@ -1,0 +1,567 @@
+
+/* Cool Text Field */
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 50%;
+}
+.form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid white;
+    outline: 0;
+    font-size: 1.3rem;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+.form__field::placeholder {
+    color: transparent;
+}
+.form__field:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+}
+.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: white;
+    font-style:'Comic Sans';
+}
+.form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #1bbfe9, #020704);
+    border-image-slice: 1;
+}
+.form__field:focus ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #1bbfe9;
+    font-weight: 700;
+    font-family:'Comic Sans';
+}
+/* reset input */
+.form__field:required, .form__field:invalid {
+    box-shadow: none;
+}
+/*  */
+body {
+    font-family: 'Poppins', 'Comic Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 1.5rem;
+    background-color: #222;
+}
+
+
+
+
+
+/* Cool button */
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.buttons {
+    margin-top: 50px;
+    text-align: center;
+    border-radius: 30px;
+}
+.blob-btn {
+    z-index: 1;
+    position: relative;
+    padding: 20px 46px;
+    margin-bottom: 30px;
+    margin-right: 150px;
+    text-align: center;
+    text-transform: uppercase;
+    /* color: #0505a9; */
+    color: #252525;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    transition: color 0.5s;
+    cursor: pointer;
+    border-radius: 30px;
+}
+.blob-btn:before {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #1BBFE9;
+    border-radius: 30px;
+}
+.blob-btn:after {
+    content: "";
+    z-index: -2;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s 0.2s;
+    border-radius: 30px;
+}
+.blob-btn:hover {
+    color: #fff;
+    border-radius: 30px;
+}
+.blob-btn:hover:after {
+    transition: all 0.3s;
+    left: 0;
+    top: 0;
+    border-radius: 30px;
+}
+.blob-btn__inner {
+    z-index: -1;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background: #fff;
+}
+.blob-btn__blobs {
+    position: relative;
+    display: block;
+    height: 100%;
+    filter: url("#goo");
+}
+.blob-btn__blob {
+    position: absolute;
+    top: 2px;
+    width: 25%;
+    height: 100%;
+    background: #1BBFE9;
+    border-radius: 100%;
+    transform: translate3d(0, 150%, 0) scale(1.7);
+    transition: transform 0.45s;
+}
+
+/* @supports (filter: url("#goo")) {
+    transform: translate3d(0, 150%, 0) scale(1.4);
+} */
+
+.blob-btn__blob:nth-child(1) {
+    left: 0%;
+    transition-delay: 0s;
+}
+.blob-btn__blob:nth-child(2) {
+    left: 30%;
+    transition-delay: 0.08s;
+}
+.blob-btn__blob:nth-child(3) {
+    left: 60%;
+    transition-delay: 0.16s;
+}
+.blob-btn__blob:nth-child(4) {
+    left: 90%;
+    transition-delay: 0.24s;
+}
+.blob-btn:hover .blob-btn__blob {
+    transform: translateZ(0) scale(1.7);
+}
+/* @supports (filter: url("#goo")) {
+    transform: translateZ(0) scale(1.4);
+} */
+
+
+/* Product CSS */
+
+/* @import url("https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Istok Web", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #212121;
+}
+
+.card {
+  position: relative;
+  width: 320px;
+  height: 480px;
+  background: #191919;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  width: 100%;
+  height: 100%;
+  background: #ffce00;
+  transform: skewY(345deg);
+  transition: 0.5s;
+}
+
+.card:hover::before {
+  top: -70%;
+  transform: skewY(390deg);
+}
+
+.card::after {
+  content: "CORSAIR";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-weight: 600;
+  font-size: 6em;
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.card .imgBox {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  z-index: 1;
+}
+
+.card .contentBox {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.card .contentBox h3 {
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card .contentBox .price {
+  font-size: 24px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.card .contentBox .buy {
+  position: relative;
+  top: 100px;
+  opacity: 0;
+  padding: 10px 30px;
+  margin-top: 15px;
+  color: #000000;
+  text-decoration: none;
+  background: #ffce00;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+.card:hover .contentBox .buy {
+  top: 0;
+  opacity: 1;
+}
+
+.mouse {
+  height: 300px;
+  width: auto;
+}
+ */
+
+
+
+
+/* New Product */
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,300,400,500,600,700,800, 800i, 900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #131313;
+}
+
+.container {
+    position: relative;
+}
+
+.container .card {
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background: #232323;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.container .card:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1BBFE9;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.container .card:hover:before {
+    clip-path: circle(300px at 80% -20%);
+}
+
+.container .card:after {
+    content: "Nike";
+    position: absolute;
+    top: 30%;
+    left: -20%;
+    font-size: 12em;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.04);
+
+}
+
+.container .card .imgBx {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    transition: .5s;
+}
+
+.container .card:hover .imgBx {
+    top: 0%;
+    transform: translateY(-25%);
+    /* bug  */
+}
+
+.container .card .imgBx img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(20deg);
+    width: 270px;
+}
+
+.container .card .contentBx {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 90;
+}
+
+.container .card:hover .contentBx {
+    height: 210px;
+}
+
+.container .card .contentBx h2 {
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.container .card .contentBx .size,
+.container .card .contentBx .color {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: .5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.container .card:hover .contentBx .size {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: .5s;
+}
+
+.container .card:hover .contentBx .color {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: .6s;
+}
+
+.container .card .contentBx .size h3,
+.container .card .contentBx .color h3 {
+    color: white;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+}
+
+.container .card .contentBx .size span {
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    display: inline-block;
+    color: #111;
+    background: #fff;
+    margin: 0 5px;
+    transition: .5s;
+    color: #111;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+/* other bug */
+.container .card .contentBx .size span:hover {    
+    background: #B90000;
+}
+
+.container .card .contentBx .color span {
+    width: 20px;
+    height: 20px;
+    background: #ff0;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.container .card .contentBx .color span:nth-child(2) {
+     background: #1BBFE9;
+}
+
+.container .card .contentBx .color span:nth-child(3) {
+     background: #1B2FE9;
+}
+
+.container .card .contentBx .color span:nth-child(4) {
+     background: #080481;
+}
+
+.container .card .contentBx a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 4px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #111;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: .5s;
+}
+
+.container .card:hover .contentBx a {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: .7s;
+} 
+
+/* MY CSS */
+
+body{
+
+    padding: 30px 50px 0px 100px;
+
+    /* background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(255,0,0,1)); */
+    /* background-image: linear-gradient(to bottom,#1CB5E0  , #000046); */
+    background: #252525;
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    /* background: #333;  if not satisfied with current color use this*/
+    font-family: "Open Sans", Helvetica, Arial, sans-serif, "Comic Sans MS", "Comic Sans";
+    
+    color: white; 
+
+}
+
+h1{
+    margin-top: 10px;
+    /* change its font like fallinsports heading */
+}
+
+
+/* Image CSS */
+.imgmain{
+    /* margin-top: -230px; */
+    position: absolute;
+    top: 100px;
+    right: 16px;
+    /* margin-right: -65px; */
+}
+
+
+
+#imgfooter{
+    /* margin-top: 110px;
+    float: right;
+    margin-right: -700px; */
+    position: absolute;
+    bottom: -60px;
+    right: 16px;
+   
+}
+.output {
+    position: absolute;
+    bottom: -60px;
+    left:110px;
+    }
+
+.ptext{
+    position: absolute;
+    bottom: 70px;
+    right: 121px;
+    font-family: 'Poppins', sans-serif;
+}
